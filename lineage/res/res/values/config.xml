@@ -99,7 +99,6 @@
         <item>org.lineageos.platform.internal.ProfileManagerService</item>
         <item>org.lineageos.platform.internal.LineageHardwareService</item>
         <item>org.lineageos.platform.internal.display.LiveDisplayService</item>
-        <item>org.lineageos.platform.internal.TrustInterfaceService</item>
         <item>org.lineageos.platform.internal.LineageSettingsService</item>
         <item>org.lineageos.platform.internal.LineageGlobalActionsService</item>
         <item>org.lineageos.platform.internal.health.HealthInterfaceService</item>
@@ -249,10 +248,6 @@
     <!-- The list of vendor package signatures that should also be considered
          platform signatures, specifically for use on devices with a vendor partition. -->
     <string-array name="config_vendorPlatformSignatures" />
-
-    <!-- Indicate whether encryption causes significant performances loss.
-         This MUST NOT be set to true on devices produced in 2016 or later -->
-    <bool name="config_trustLegacyEncryption">false</bool>
 
     <!-- Whether device has a screen with a higher aspect ratio -->
     <bool name="config_haveHigherAspectRatioScreen">false</bool>

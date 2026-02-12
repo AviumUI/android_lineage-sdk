@@ -24,8 +24,6 @@ import android.util.Log;
 import com.android.internal.annotations.GuardedBy;
 import com.android.internal.util.ArrayUtils;
 
-import lineageos.trust.TrustInterface;
-
 import vendor.lineage.health.FastChargeMode;
 
 import java.util.ArrayList;
@@ -70,16 +68,6 @@ public final class LineageSettings {
      */
     public static final String ACTION_LIVEDISPLAY_SETTINGS =
             "lineageos.settings.LIVEDISPLAY_SETTINGS";
-
-    /**
-     * Activity Action: Show Trust interface settings
-     * <p>
-     * Input: Nothing.
-     * <p>
-     * Output: Nothing.
-     */
-    public static final String ACTION_TRUST_INTERFACE =
-            "lineageos.settings.TRUST_INTERFACE";
 
     // region Call Methods
 
@@ -1616,15 +1604,6 @@ public final class LineageSettings {
                 new InclusiveIntegerRangeValidator(-3, 1);
 
         /**
-         * Did we tell the user about the trust brand and interface?
-         * @hide
-         */
-        public static final String TRUST_INTERFACE_HINTED = "trust_interface_hinted";
-
-        /** @hide */
-        public static final Validator TRUST_INTERFACE_HINTED_VALIDATOR = sBooleanValidator;
-
-        /**
          *  Enable statusbar double tap gesture on to put device to sleep
          *  0 = 0ff, 1 = on
          */
@@ -2203,7 +2182,6 @@ public final class LineageSettings {
             VALIDATORS.put(DISPLAY_COLOR_ENHANCE, DISPLAY_COLOR_ENHANCE_VALIDATOR);
             VALIDATORS.put(DISPLAY_COLOR_ADJUSTMENT, DISPLAY_COLOR_ADJUSTMENT_VALIDATOR);
             VALIDATORS.put(LIVE_DISPLAY_HINTED, LIVE_DISPLAY_HINTED_VALIDATOR);
-            VALIDATORS.put(TRUST_INTERFACE_HINTED, TRUST_INTERFACE_HINTED_VALIDATOR);
             VALIDATORS.put(DOUBLE_TAP_SLEEP_GESTURE, DOUBLE_TAP_SLEEP_GESTURE_VALIDATOR);
             VALIDATORS.put(RECENTS_SHOW_SEARCH_BAR, RECENTS_SHOW_SEARCH_BAR_VALIDATOR);
             VALIDATORS.put(NAVBAR_LEFT_IN_LANDSCAPE, NAVBAR_LEFT_IN_LANDSCAPE_VALIDATOR);
@@ -2947,19 +2925,6 @@ public final class LineageSettings {
                 new InclusiveIntegerRangeValidator(0, 2);
 
         /**
-         * Trust warnings status
-         *
-         * Stores flags for each feature
-         *
-         * @see {@link lineageos.trust.TrustInterface.TRUST_WARN_MAX_VALUE}
-         */
-        public static final String TRUST_WARNINGS = "trust_warnings";
-
-        /** @hide */
-        public static final Validator TRUST_WARNINGS_VALIDATOR =
-                new InclusiveIntegerRangeValidator(0, TrustInterface.TRUST_WARN_MAX_VALUE);
-
-        /**
          * Whether volume panel should appear on the left (or right).
          * 0 = false (on the right)
          * 1 = true (on the left)
@@ -3006,7 +2971,6 @@ public final class LineageSettings {
             VALIDATORS.put(NETWORK_TRAFFIC_AUTOHIDE, NETWORK_TRAFFIC_AUTOHIDE_VALIDATOR);
             VALIDATORS.put(NETWORK_TRAFFIC_UNITS, NETWORK_TRAFFIC_UNITS_VALIDATOR);
             VALIDATORS.put(NETWORK_TRAFFIC_SHOW_UNITS, NETWORK_TRAFFIC_SHOW_UNITS_VALIDATOR);
-            VALIDATORS.put(TRUST_WARNINGS, TRUST_WARNINGS_VALIDATOR);
             VALIDATORS.put(VOLUME_PANEL_ON_LEFT, VOLUME_PANEL_ON_LEFT_VALIDATOR);
         }
     }
@@ -3414,21 +3378,6 @@ public final class LineageSettings {
         public static final String WIFI_AUTO_PRIORITIES_CONFIGURATION = "wifi_auto_priority";
 
         /**
-         * Restrict USB
-         * 0 = Off, never
-         * 1 = Only when the screen is locked
-         * 2 = On, always
-         *
-         * @hide
-         */
-        public static final String TRUST_RESTRICT_USB = "trust_restrict_usb";
-
-        /** @hide */
-        public static final Validator TRUST_RESTRICT_USB_VALIDATOR =
-                new InclusiveIntegerRangeValidator(0, 2);
-        // endregion
-
-        /**
          * I can haz more bukkits
          * @hide
          */
@@ -3455,7 +3404,6 @@ public final class LineageSettings {
         public static final Map<String, Validator> VALIDATORS =
                 new ArrayMap<String, Validator>();
         static {
-            VALIDATORS.put(TRUST_RESTRICT_USB, TRUST_RESTRICT_USB_VALIDATOR);
             VALIDATORS.put(__MAGICAL_TEST_PASSING_ENABLER,
                     __MAGICAL_TEST_PASSING_ENABLER_VALIDATOR);
         };

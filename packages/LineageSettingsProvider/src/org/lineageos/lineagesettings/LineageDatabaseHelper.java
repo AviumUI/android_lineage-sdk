@@ -240,17 +240,6 @@ public class LineageDatabaseHelper extends SQLiteOpenHelper{
             upgradeVersion = 15;
         }
 
-        if (upgradeVersion < 16) {
-            // Move trust_restrict_usb to global
-            if (mUserHandle == UserHandle.USER_OWNER) {
-                moveSettingsToNewTable(db, LineageTableNames.TABLE_SECURE,
-                        LineageTableNames.TABLE_GLOBAL, new String[] {
-                        LineageSettings.Global.TRUST_RESTRICT_USB
-                }, true);
-            }
-            upgradeVersion = 16;
-        }
-
         if (upgradeVersion < 17) {
             // Move berry_black_theme to secure
             moveSettingsToNewTable(db, LineageTableNames.TABLE_SYSTEM,
