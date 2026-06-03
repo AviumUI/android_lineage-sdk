@@ -1,6 +1,6 @@
 /*
  * SPDX-FileCopyrightText: 2015-2016 The CyanogenMod Project
- * SPDX-FileCopyrightText: 2017-2026 The LineageOS Project
+ * SPDX-FileCopyrightText: The LineageOS Project
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -362,7 +362,7 @@ public final class LineageSettings {
             new InclusiveIntegerRangeValidator(0, 86400);
 
     private static final Validator sHardwareKeyActionvalidator =
-            new InclusiveIntegerRangeValidator(0, 11);
+            new InclusiveIntegerRangeValidator(0, 13);
 
     private static final Validator sAlwaysTrueValidator = new Validator() {
         @Override
@@ -1077,6 +1077,8 @@ public final class LineageSettings {
          * 9 - Toggle split screen
          * 10 - Kill foreground app
          * 11 - Play/pause music
+         * 12 - Take screenshot
+         * 13 - Take partial screenshot
          */
         public static final String KEY_HOME_LONG_PRESS_ACTION = "key_home_long_press_action";
 
