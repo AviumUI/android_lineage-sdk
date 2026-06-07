@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: 2017 The LineageOS Project
+ * SPDX-FileCopyrightText: The LineageOS Project
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -46,6 +46,10 @@ public final class LightsCapabilities {
 
     // The notification light has non-adjustable pulsing capability.
     public static final int LIGHTS_BREATHING_LED = 256;
+
+    // The device's LEDs are on/off only, so brightness controls are hidden
+    // even when RGB is supported.
+    public static final int LIGHTS_NO_BRIGHTNESS_CONTROL = 512;
 
     public static boolean blinks(Context context) {
         final int capabilities = context.getResources().getInteger(

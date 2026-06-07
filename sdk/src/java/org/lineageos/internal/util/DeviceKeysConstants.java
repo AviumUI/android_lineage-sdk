@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: 2018,2021 The LineageOS Project
+ * SPDX-FileCopyrightText: The LineageOS Project
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -26,7 +26,9 @@ public class DeviceKeysConstants {
         LAST_APP,
         SPLIT_SCREEN,
         KILL_APP,
-        PLAY_PAUSE_MUSIC;
+        PLAY_PAUSE_MUSIC,
+        SCREENSHOT,
+        PARTIAL_SCREENSHOT;
 
         public static Action fromIntSafe(int id) {
             if (id < NOTHING.ordinal() || id > Action.values().length) {
